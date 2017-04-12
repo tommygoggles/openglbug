@@ -75,6 +75,8 @@ file(GLOB COMMON_SOURCES "*.cpp")
 #find_file(SDL2_INCLUDE_DIR NAME SDL.h HINTS SDL2)
 #find_library(SDL2_LIBRARY NAME SDL2)
 
+# includes cmake/FindSDL2.cmake
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(SDL2 REQUIRED)
 
 
