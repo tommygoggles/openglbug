@@ -56,7 +56,7 @@ file(GLOB COMMON_SOURCES "*.cpp")
 
 file(GLOB TGSDL2_SOURCES "tgsdl2/*.cpp")
 
-
+file(GLOB TGGLUT_SOURCES "tgglut/*.cpp")
 
 
 
@@ -98,3 +98,4 @@ link_libraries(${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} )
 
 add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
 
+add_executable(glbugglut ${COMMON_SOURCES} ${TGGLUT_SOURCES})
