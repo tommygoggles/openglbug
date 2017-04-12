@@ -12,6 +12,7 @@
 
 
 droorinthing thedraw;
+int windowid;
 
 
 void display(void)
