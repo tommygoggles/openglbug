@@ -15,23 +15,52 @@
     #include <SDL_opengl.h>
 
 
+
+class droorinthing
+{
+    public:
     void draw();
+    void start();
+    void end();
+    void wirey();
+    void line();
+    void texturtator(GLuint* tex, unsigned char r, unsigned char g, unsigned char b);
+       
+    bool fix;
+    bool wire;
 
-    bool fix = false;
-    bool wire = false;
+    GLuint tex1;
+    GLuint tex2;
+    
+    droorinthing();
+    ~droorinthing();
+}
+    
 
-    GLuint tex1 = 0;
-    GLuint tex2 = 0;
+    droorinthing::droorinthing()
+    {
+        bool fix = false;
+        bool wire = false;
+
+        GLuint tex1 = 0;
+        GLuint tex2 = 0;
+    }
+
+    
+    droorinthing::~droorinthing()
+    {
+        
+    }
 
 
-    void start()
+    void droorinthing::start()
     {
         glEnable(GL_TEXTURE_2D);
         glEnableClientState(GL_VERTEX_ARRAY);
         glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     }
 
-    void end()
+    void droorinthing::end()
     {
         glDisableClientState(GL_VERTEX_ARRAY);
         glDisableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -40,18 +69,19 @@
         glDeleteTextures(1, &tex2);
     }
 
-    void wirey()
+    void droorinthing::wirey()
     {
         glPolygonMode(GL_FRONT, GL_FILL);
     }
 
-    void line()
+    void droorinthing::line()
     {
         glPolygonMode(GL_FRONT, GL_LINE);
     }
 
 
-
+    droorinthing thedraw;
+    
     
     int main(int argc, char *argv[])
     {
@@ -61,7 +91,7 @@
 
         SDL_GL_CreateContext(mywindow);
 
-        start();
+        thedraw.start();
 
         bool loop = true;
         
@@ -81,19 +111,19 @@
                         loop = false;
                         break;
                     case SDLK_q:
-                        fix = !fix;
+                        thedraw.fix = !thedraw.fix;
                     break;
 
                     case SDLK_w:
-                        if(wire)
+                        if(thedraw.wire)
                         {
-                            wirey();
+                            thedraw.wirey();
                         }
                         else
                         {
-                            line();
+                            thedraw.line();
                         }
-                        wire = !wire;
+                        thedraw.wire = !thedraw.wire;
                     break;
 
 
@@ -104,7 +134,7 @@
                     }
                 }
             }
-            draw();
+            thedraw.draw();
             SDL_GL_SwapWindow(mywindow);
         }
         end();
@@ -116,7 +146,7 @@
 
 
 
-    void texturator(GLuint* tex, unsigned char r, unsigned char g, unsigned char b)
+    void droorinthing::texturator(GLuint* tex, unsigned char r, unsigned char g, unsigned char b)
     {
         if(!(*tex))
         {
@@ -155,7 +185,7 @@
 
 
 
-    void draw()
+    void droorinthing::draw()
     {
 
 
