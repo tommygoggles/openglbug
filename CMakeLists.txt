@@ -82,7 +82,7 @@ find_package(SDL2 REQUIRED)
 
 
 find_package(OpenGL REQUIRED)
-# mac find_package(GLUT REQUIRED)
+find_package(GLUT REQUIRED)
 
 
 
@@ -93,8 +93,8 @@ find_package(OpenGL REQUIRED)
 
 
 
-include_directories(${SDL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR})
-link_libraries(${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} )
+include_directories(${SDL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR} ${GLUT_INCLUDE_DIRS})
+link_libraries(${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} ${GLUT_LIBRARY})
 
 add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
 
