@@ -1,0 +1,7 @@
+language: cpp
+
+compiler:
+  - clang
+  - gcc
+  
+script: pwd && ls && cmake . && make && ls
