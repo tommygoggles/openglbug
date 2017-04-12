@@ -7,7 +7,7 @@
 //-framework GLUT
 //#endif
 
-#include <glut.h>
+#include <GL/glut.h>
 
 
 
