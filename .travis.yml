@@ -1,5 +1,9 @@
 language: cpp
 
+os:
+  - linux
+  - osx
+
 compiler:
   - clang
   - gcc
@@ -9,4 +13,4 @@ before_install:
 - sudo apt-get update -qq
 - sudo apt-get install -y  libsdl2-dev
 
-script: pwd && ls && cmake . && make && ls && cat Makefile && cd bin && pwd && ls && glbug
+script: pwd && ls && cmake . && make && ls && cat Makefile && cd bin && pwd && ls
