@@ -39,11 +39,11 @@ class droorinthing
 
     droorinthing::droorinthing()
     {
-        bool fix = false;
-        bool wire = false;
+        fix = false;
+        wire = false;
 
-        GLuint tex1 = 0;
-        GLuint tex2 = 0;
+        tex1 = 0;
+        tex2 = 0;
     }
 
     
