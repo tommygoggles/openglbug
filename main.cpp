@@ -34,7 +34,7 @@ class droorinthing
     
     droorinthing();
     ~droorinthing();
-}
+};
     
 
     droorinthing::droorinthing()
