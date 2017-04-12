@@ -54,7 +54,7 @@ include_directories("${PROJECT_SOURCE_DIR}")
 #However, the file(GLOB...) allows for wildcard additions:
 file(GLOB COMMON_SOURCES "*.cpp")
 
-
+file(GLOB TGSDL2_SOURCES "tgsdl2/*.cpp")
 
 
 
@@ -96,5 +96,5 @@ find_package(OpenGL REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR})
 link_libraries(${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} )
 
-add_executable(glbug ${COMMON_SOURCES})
+add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
 
