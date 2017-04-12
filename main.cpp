@@ -24,6 +24,35 @@
     GLuint tex2 = 0;
 
 
+    void start()
+    {
+        glEnable(GL_TEXTURE_2D);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
+
+    void end()
+    {
+        glDisableClientState(GL_VERTEX_ARRAY);
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+        glDeleteTextures(1, &tex1);
+        glDeleteTextures(1, &tex2);
+    }
+
+    void wire()
+    {
+        glPolygonMode(GL_FRONT, GL_FILL);
+    }
+
+    void line()
+    {
+        glPolygonMode(GL_FRONT, GL_LINE);
+    }
+
+
+
+    
     int main(int argc, char *argv[])
     {
         SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
@@ -32,14 +61,10 @@
 
         SDL_GL_CreateContext(mywindow);
 
-        glEnable(GL_TEXTURE_2D);
-
-
+        start();
 
         bool loop = true;
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-
+        
         while (loop)
         {
             SDL_Event event;
@@ -62,11 +87,11 @@
                     case SDLK_w:
                         if(wire)
                         {
-                            glPolygonMode(GL_FRONT, GL_FILL);
+                            wire();
                         }
                         else
                         {
-                            glPolygonMode(GL_FRONT, GL_LINE);
+                            line();
                         }
                         wire = !wire;
                     break;
@@ -82,11 +107,7 @@
             draw();
             SDL_GL_SwapWindow(mywindow);
         }
-        glDisableClientState(GL_VERTEX_ARRAY);
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-        glDeleteTextures(1, &tex1);
-        glDeleteTextures(1, &tex2);
+        end();
 
 
         return 0;
