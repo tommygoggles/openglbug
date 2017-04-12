@@ -40,7 +40,7 @@
         glDeleteTextures(1, &tex2);
     }
 
-    void wire()
+    void wirey()
     {
         glPolygonMode(GL_FRONT, GL_FILL);
     }
@@ -87,7 +87,7 @@
                     case SDLK_w:
                         if(wire)
                         {
-                            wire();
+                            wirey();
                         }
                         else
                         {
