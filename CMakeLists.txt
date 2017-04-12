@@ -75,7 +75,7 @@ file(GLOB COMMON_SOURCES "*.cpp")
 find_file(SDL2_INCLUDE_DIR NAME SDL.h HINTS SDL2)
 find_library(SDL2_LIBRARY NAME SDL2)
 
-#
+
 
 find_package(OpenGL REQUIRED)
 # mac find_package(GLUT REQUIRED)
