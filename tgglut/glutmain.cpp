@@ -3,9 +3,12 @@
 //#include "GL/gl.h"
 
 //#ifdef __APPLE__
-#include <GLUT/glut.h>
+//#include <GLUT/glut.h>
 //-framework GLUT
 //#endif
+
+#include <glut.h>
+
 
 
 droorinthing thedraw;
