@@ -24,7 +24,7 @@ class droorinthing
     void end();
     void wirey();
     void line();
-    void texturtator(GLuint* tex, unsigned char r, unsigned char g, unsigned char b);
+    void texturator(GLuint* tex, unsigned char r, unsigned char g, unsigned char b);
        
     bool fix;
     bool wire;
@@ -137,7 +137,7 @@ class droorinthing
             thedraw.draw();
             SDL_GL_SwapWindow(mywindow);
         }
-        end();
+        thedraw.end();
 
 
         return 0;
