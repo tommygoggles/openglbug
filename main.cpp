@@ -12,7 +12,7 @@
 
 
     #include <SDL.h>
-    #include <SDL_opengl.h>
+    #include <GL/gl.h>
 
 
 
@@ -37,47 +37,7 @@ class droorinthing
 };
     
 
-    droorinthing::droorinthing()
-    {
-        fix = false;
-        wire = false;
 
-        tex1 = 0;
-        tex2 = 0;
-    }
-
-    
-    droorinthing::~droorinthing()
-    {
-        
-    }
-
-
-    void droorinthing::start()
-    {
-        glEnable(GL_TEXTURE_2D);
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    }
-
-    void droorinthing::end()
-    {
-        glDisableClientState(GL_VERTEX_ARRAY);
-        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-        glDeleteTextures(1, &tex1);
-        glDeleteTextures(1, &tex2);
-    }
-
-    void droorinthing::wirey()
-    {
-        glPolygonMode(GL_FRONT, GL_FILL);
-    }
-
-    void droorinthing::line()
-    {
-        glPolygonMode(GL_FRONT, GL_LINE);
-    }
 
 
     droorinthing thedraw;
@@ -235,4 +195,46 @@ class droorinthing
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 
 
+    }
+
+    droorinthing::droorinthing()
+    {
+        fix = false;
+        wire = false;
+
+        tex1 = 0;
+        tex2 = 0;
+    }
+
+    
+    droorinthing::~droorinthing()
+    {
+        
+    }
+
+
+    void droorinthing::start()
+    {
+        glEnable(GL_TEXTURE_2D);
+        glEnableClientState(GL_VERTEX_ARRAY);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
+
+    void droorinthing::end()
+    {
+        glDisableClientState(GL_VERTEX_ARRAY);
+        glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+        glDeleteTextures(1, &tex1);
+        glDeleteTextures(1, &tex2);
+    }
+
+    void droorinthing::wirey()
+    {
+        glPolygonMode(GL_FRONT, GL_FILL);
+    }
+
+    void droorinthing::line()
+    {
+        glPolygonMode(GL_FRONT, GL_LINE);
     }
