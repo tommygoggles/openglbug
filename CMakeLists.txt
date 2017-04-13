@@ -92,12 +92,12 @@ find_package(GLUT REQUIRED)
 
 
 
+add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
+
+add_executable(glbugglut ${COMMON_SOURCES} ${TGGLUT_SOURCES})
 
 include_directories(${SDL2_INCLUDE_DIR} ${OPENGL_INCLUDE_DIR} ${GLUT_INCLUDE_DIRS})
 target_link_libraries(glbugglut ${OPENGL_gl_LIBRARY} ${GLUT_LIBRARY})
 
 target_link_libraries(glbug ${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} )
 
-add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
-
-add_executable(glbugglut ${COMMON_SOURCES} ${TGGLUT_SOURCES})
