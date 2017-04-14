@@ -77,14 +77,33 @@ file(GLOB TGGLUT_SOURCES "tgglut/*.cpp")
 
 # includes cmake/FindSDL2.cmake
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
-find_package(SDL2 REQUIRED)
+
 
 
 
 find_package(OpenGL REQUIRED)
-find_package(GLUT REQUIRED)
+
+include_directories(${OPENGL_INCLUDE_DIR} )
+link_libraries(${OPENGL_gl_LIBRARY})
 
 
+find_package(SDL2)
+IF( SDL2_FOUND )
+add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
+include_directories( ${SDL2_INCLUDE_DIR} )
+target_link_libraries(glbug ${SDL2_LIBRARY})
+ENDIF()
+    
+
+
+
+
+find_package(GLUT)
+IF( GLUT_FOUND )
+add_executable(glbugglut ${COMMON_SOURCES} ${TGGLUT_SOURCES})
+include_directories(${GLUT_INCLUDE_DIRS})
+target_link_libraries(glbugglut ${GLUT_LIBRARY})
+ENDIF()
 
 #add_compile_options(<option> ...)
 #-fno-omit-frame-pointer ?
@@ -92,17 +111,17 @@ find_package(GLUT REQUIRED)
 
 
 
-add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
 
-add_executable(glbugglut ${COMMON_SOURCES} ${TGGLUT_SOURCES})
 
-target_include_directories(glbug ${SDL2_INCLUDE_DIR} )
 
-target_include_directories(glbugglut ${GLUT_INCLUDE_DIRS})
 
-include_directories(${OPENGL_INCLUDE_DIR} )
 
-target_link_libraries(glbugglut ${OPENGL_gl_LIBRARY} ${GLUT_LIBRARY})
 
-target_link_libraries(glbug ${SDL2_LIBRARY} ${OPENGL_gl_LIBRARY} )
+
+
+
+
+
+
+
 
