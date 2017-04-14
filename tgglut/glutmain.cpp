@@ -34,7 +34,7 @@ void visible(int vis)
   if (vis == GLUT_VISIBLE)
     glutIdleFunc(idle);
   else
-    glutIdleFunc(NULL);
+    glutIdleFunc(0);
 }
 
 
