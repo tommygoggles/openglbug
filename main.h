@@ -1,7 +1,15 @@
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#else
 #include <GL/gl.h>
     //link library
     //opengl32
+#endif
+
+
+
+
 
 class droorinthing
 {
