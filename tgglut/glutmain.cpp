@@ -1,13 +1,15 @@
 #include "../main.h"
 
-//#include "GL/gl.h"
 
-//#ifdef __APPLE__
-//#include <GLUT/glut.h>
+
+#ifdef __APPLE__
+#include <GLUT/glut.h>
 //-framework GLUT
-//#endif
-
+#else
 #include <GL/glut.h>
+#endif
+
+
 
 
 
