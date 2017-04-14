@@ -56,6 +56,8 @@ file(GLOB COMMON_SOURCES "*.cpp")
 
 file(GLOB TGSDL2_SOURCES "tgsdl2/*.cpp")
 
+file(GLOB TGSDL_SOURCES "tgsdl/*.cpp")
+
 file(GLOB TGGLUT_SOURCES "tgglut/*.cpp")
 
 
@@ -87,14 +89,26 @@ include_directories(${OPENGL_INCLUDE_DIR} )
 link_libraries(${OPENGL_gl_LIBRARY})
 
 
-find_package(SDL2)
-IF( SDL2_FOUND )
-add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
-include_directories( ${SDL2_INCLUDE_DIR} )
-target_link_libraries(glbug ${SDL2_LIBRARY})
-ENDIF()
-    
 
+IF(! USESDL2 )
+
+  find_package(SDL2)
+  IF( SDL2_FOUND )
+  add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
+  include_directories( ${SDL2_INCLUDE_DIR} )
+  target_link_libraries(glbug ${SDL2_LIBRARY})
+  ENDIF()
+
+ELSE()
+
+  find_package(SDL)
+  IF( SDL_FOUND )
+  add_executable(glbug ${COMMON_SOURCES} ${TGSDL_SOURCES})
+  include_directories( ${SDL_INCLUDE_DIR} )
+  target_link_libraries(glbug ${SDL_LIBRARY})
+  ENDIF()
+
+ENDIF()
 
 
 
