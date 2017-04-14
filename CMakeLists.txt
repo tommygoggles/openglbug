@@ -96,7 +96,7 @@ if(NOT USESDLVER)
 endif(NOT USESDLVER)
 
 
-IF(USESDLVER == 2)
+IF(USESDLVER MATCHES 2)
   find_package(SDL2)
   IF( SDL2_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
@@ -108,7 +108,7 @@ IF(USESDLVER == 2)
 ENDIF()
 
 
-IF(USESDLVER == 1)
+IF(USESDLVER MATCHES 1)
   find_package(SDL)
   IF( SDL_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL_SOURCES})
