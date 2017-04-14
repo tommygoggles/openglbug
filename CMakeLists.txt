@@ -90,24 +90,31 @@ link_libraries(${OPENGL_gl_LIBRARY})
 
 
 
-IF(! USESDL2 )
 
+if(NOT USESDLVER) 
+    set( USESDLVER 2)
+endif(NOT USESDLVER)
+
+
+IF(USESDLVER == 2)
   find_package(SDL2)
   IF( SDL2_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
   include_directories( ${SDL2_INCLUDE_DIR} )
   target_link_libraries(glbug ${SDL2_LIBRARY})
+  ELSE()
+  set( USESDLVER 1)
   ENDIF()
+ENDIF()
 
-ELSE()
 
+IF(USESDLVER == 1)
   find_package(SDL)
   IF( SDL_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL_SOURCES})
   include_directories( ${SDL_INCLUDE_DIR} )
   target_link_libraries(glbug ${SDL_LIBRARY})
   ENDIF()
-
 ENDIF()
 
 
