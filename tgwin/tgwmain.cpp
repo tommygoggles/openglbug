@@ -458,7 +458,7 @@ bool CreateGLWindow(const char* title, int width, int height, int bits, bool ful
     SetForegroundWindow(hWnd); // Slightly Higher Priority
     SetFocus(hWnd);            // Sets Keyboard Focus To The Window
 
-    if (! myengine->initgl() )
+    if (false)
     {
         KillGLWindow();
         MessageBox(NULL,"Initialization Failed.","ERROR",MB_OK|MB_ICONEXCLAMATION);
