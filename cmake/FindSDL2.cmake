@@ -65,16 +65,18 @@
 # (To distribute this file outside of CMake, substitute the full
 #  License text for the above reference.)
 
-SET(SDL2_SEARCH_PATHS
-	~/Library/Frameworks
-	/Library/Frameworks
-	/usr/local
-	/usr
-	/sw # Fink
-	/opt/local # DarwinPorts
-	/opt/csw # Blastwave
-	/opt
-)
+IF(NOT SDL2_SEARCH_PATHS)
+	SET(SDL2_SEARCH_PATHS
+		~/Library/Frameworks
+		/Library/Frameworks
+		/usr/local
+		/usr
+		/sw # Fink
+		/opt/local # DarwinPorts
+		/opt/csw # Blastwave
+		/opt
+	)
+ENDIF(NOT SDL2_SEARCH_PATHS)
 
 FIND_PATH(SDL2_INCLUDE_DIR SDL.h
 	HINTS
