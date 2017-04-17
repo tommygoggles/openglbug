@@ -82,11 +82,12 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 
 
-if (WIN32)
-SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4)
-link_libraries(ws2_32)
-endif (WIN32)
 
+
+
+if (MSVC)
+link_libraries(ws2_32)
+endif (MSVC)
 # #if _MSC_VER && !__INTEL_COMPILER
 #//if it is in visual studio and that
 #include windows.h before gl.h in header file
@@ -107,6 +108,9 @@ endif(NOT USESDLVER)
 
 
 IF(USESDLVER MATCHES 2)
+  if (WIN32)
+   SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4)
+  endif (WIN32)
   find_package(SDL2)
   IF( SDL2_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
