@@ -108,9 +108,15 @@ endif(NOT USESDLVER)
 
 
 IF(USESDLVER MATCHES 2)
+
   if (WIN32)
-   SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4)
+    if (MSVC)
+    SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4)
+    else (MSVC)#mingw?
+    SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4/i686-w64-mingw32)
+    endif (MSVC)
   endif (WIN32)
+  
   find_package(SDL2)
   IF( SDL2_FOUND )
   add_executable(glbug ${COMMON_SOURCES} ${TGSDL2_SOURCES})
