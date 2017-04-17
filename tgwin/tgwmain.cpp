@@ -21,7 +21,7 @@ bool fullscreen = TRUE;//Fullscreen Flag Set To Fullscreen Mode By Default
 
 
 
-? thedraw;
+droorinthing thedraw;
 
 
 
