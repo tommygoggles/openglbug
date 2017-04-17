@@ -16,6 +16,10 @@
     droorinthing thedraw;
 
 
+    #if _MSC_VER && !__INTEL_COMPILER//silly gl.h needing windows defines??
+        #undef main// SDL_main defines it for some reason, and visual studio whines..
+    #endif
+
     int main(int argc, char *argv[])
     {
         SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
