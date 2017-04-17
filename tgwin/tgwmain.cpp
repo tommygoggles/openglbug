@@ -490,7 +490,7 @@ bool CreateGLWindow(const char* title, int width, int height, int bits, bool ful
 
 
 
-#include "winscreenmodes.h"
+//#include "winscreenmodes.h"
 
 int WINAPI WinMain( HINSTANCE   hInstance,              // Instance - ALL UNUSED!!
                     HINSTANCE   hPrevInstance,          // Previous Instance - unused
@@ -512,10 +512,10 @@ int WINAPI WinMain( HINSTANCE   hInstance,              // Instance - ALL UNUSED
     thedraw.start();
     
 
-    screenmodelist listy;
-    int mode = listy.numofmodes;
-    int width = listy.size[(mode-1)*2];
-    int height = listy.size[((mode-1)*2)+1];
+    //screenmodelist listy;
+    //int mode = listy.numofmodes;
+    int width = 100;//listy.size[(mode-1)*2];
+    int height = 100;//listy.size[((mode-1)*2)+1];
 
 
 
