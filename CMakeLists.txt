@@ -84,11 +84,24 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 
 
+find_package(OpenGL REQUIRED)
+
+include_directories(${OPENGL_INCLUDE_DIR} )
+link_libraries(${OPENGL_gl_LIBRARY})
+
+
 
 
 if (MSVC)
 link_libraries(ws2_32)
 add_executable(glbugwin ${COMMON_SOURCES} ${TGWIN_SOURCES})
+
+else()
+if(WIN32)
+link_libraries(ws2_32)
+add_executable(glbugwin ${COMMON_SOURCES} ${TGWIN_SOURCES})
+endif()
+
 endif (MSVC)
 # #if _MSC_VER && !__INTEL_COMPILER
 #//if it is in visual studio and that
@@ -96,10 +109,7 @@ endif (MSVC)
 #visual studio - right click - choose set startup project
 
 
-find_package(OpenGL REQUIRED)
 
-include_directories(${OPENGL_INCLUDE_DIR} )
-link_libraries(${OPENGL_gl_LIBRARY})
 
 
 
