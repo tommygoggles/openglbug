@@ -2,7 +2,7 @@
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #else
-    #ifdef _MSC_VER && !__INTEL_COMPILER//silly visual studio
+    #if _MSC_VER && !__INTEL_COMPILER//silly gl.h needing windows defines??
     #include <windows.h>
     #endif
 #include <GL/gl.h>
