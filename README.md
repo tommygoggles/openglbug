@@ -10,3 +10,9 @@ must include
 SDL2-2.0.4/i686-w64-mingw32
 .......
 but that does set... so how you do this??
+
+
+
+
+Project -> Properties -> Configuration Properties -> Linker -> System
+changing SubSystem
