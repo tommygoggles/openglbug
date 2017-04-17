@@ -60,6 +60,7 @@ file(GLOB TGSDL_SOURCES "tgsdl/*.cpp")
 
 file(GLOB TGGLUT_SOURCES "tgglut/*.cpp")
 
+file(GLOB TGWIN_SOURCES "tgwin/*.cpp")
 
 
 #This command tells CMake you want to make an executable and adds it as a target.
@@ -87,6 +88,7 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 if (MSVC)
 link_libraries(ws2_32)
+add_executable(glbugwin ${COMMON_SOURCES} ${TGWIN_SOURCES})
 endif (MSVC)
 # #if _MSC_VER && !__INTEL_COMPILER
 #//if it is in visual studio and that
