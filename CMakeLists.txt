@@ -82,6 +82,16 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 
 
+if (WIN32)
+SET(SDL2_SEARCH_PATHS	C:/Libs/SDL2-2.0.4)
+link_libraries(ws2_32)
+endif (WIN32)
+
+# #if _MSC_VER && !__INTEL_COMPILER
+#//if it is in visual studio and that
+#include windows.h before gl.h in header file
+#visual studio - right click - choose set startup project
+
 
 find_package(OpenGL REQUIRED)
 
